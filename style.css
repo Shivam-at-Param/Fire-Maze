@@ -1,0 +1,355 @@
+* {
+  font-family: 'VT323', monospace;
+  /* color: white; */
+}
+
+body {
+  margin: 0;
+  /* background-color: #000000; */
+}
+
+#warning {
+  display: flex;
+  justify-content: center;
+  font-size: x-large;
+  padding-bottom: 10px;
+  font-weight: bold;
+  font-weight: 100;
+}
+
+/* .arrow {
+  background-image: url("/down-arrow.png");
+  background-size: contain;
+  position: relative;
+  width: 25px;
+  top: 6px;
+  height: 36px;
+  left: 25px;
+  background-repeat: no-repeat;
+}
+
+.out { 
+  top: 494px;
+  position: relative;
+  left: -25px;
+} */
+
+#game-container {
+  width: 100%;
+  margin: 0 auto;
+  justify-content: center;
+  display: flex;
+  flex-flow: wrap;
+}
+
+#game-container hr {
+  width: 100%;
+  display: none;
+}
+
+#game-info {
+  margin-top: 20px;
+  text-align: center;
+  width: 100%;
+}
+
+#game-info p {
+  font-size: 20px;
+  margin: 10px;
+}
+
+#game-info span {
+  font-weight: bold;
+}
+
+#scoreInfo {
+  display: none;
+  font-size: 20px;
+  margin: 10px;
+  justify-content: center;
+  position: relative;
+  bottom: 66px;
+}
+
+#scoreInfo span {
+  font-weight: bold;
+}
+
+#game-screen {
+  display: flex;
+  transition: filter 1s;
+}
+
+@keyframes blurr {
+  from {
+    filter: blur(0px);
+  }
+
+  to {
+    filter: blur(10px);
+  }
+}
+
+.cell {
+  width: 25px;
+  height: 25px;
+  /* border: 1px solid #ccc; */
+  background-color: #540d0d;
+  /* background-color: transparent; */
+}
+
+.wall {
+  background-color: #333;
+  background-image: url(/lava.jpg);
+  background-size: cover;
+}
+
+.fuel {
+  /* background-color: #f00; */
+  background-image: url(/public/fuel.png);
+  background-size: contain;
+}
+
+@keyframes opacity {
+  from {
+    opacity: 0
+  }
+
+  ;
+
+  to {
+    opacity: 1
+  }
+
+  ;
+}
+
+.water {
+  /* background-color: transparent; */
+  /* background-image: url("/splash.png"); */
+  background-image: url("/watr.gif");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  transition: opacity 5s ease-in-out;
+  opacity: 1;
+  /* animation: fadeInOut 2s infinite; */
+}
+
+.fade {
+  transition: background-image 2 ease-in-out;
+  background-image: none !important;
+}
+
+.player {
+  /* background-color: #0f0; */
+  position: relative;
+  /* background-image: url("pixel-fire2.gif"); */
+  background-image: url("fire.gif");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.exit {
+  background-color: #540d0d;
+  /* You can choose any color */
+  background-image: url("/door.png");
+  background-size: cover;
+}
+
+.message {
+  display: flex;
+  justify-content: center;
+}
+
+.lowFuel {
+  background-image: url("lowFuel.gif");
+  background-size: contain;
+  height: 40vh;
+  width: 350px;
+  position: absolute;
+  top: 21%;
+  border-radius: 2rem;
+}
+
+.low {
+  display: none;
+  justify-content: center;
+  cursor: pointer;
+  animation: gifLoad 1s ease-in-out;
+}
+
+.gif {
+  /* display: flex; */
+  display: none;
+  justify-content: center;
+  cursor: pointer;
+  animation: gifLoad 1s ease-in-out;
+}
+
+@keyframes gifLoad {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.gif p,
+.low p {
+  position: absolute;
+  z-index: 2;
+  font-size: larger;
+  font-weight: bold;
+}
+
+.gameOver {
+  background-image: url("/GameOver.gif");
+  height: 45vh;
+  width: 350px;
+  position: absolute;
+  top: 17%;
+  border-radius: 2rem;
+}
+
+.wins {
+  display: none;
+  justify-content: center;
+  cursor: pointer;
+  animation: gifLoad 1s ease-in-out;
+}
+
+.wins p {
+  position: absolute;
+  z-index: 2;
+  font-size: larger;
+  /* top: 13%; */
+  font-weight: bold;
+}
+
+.win {
+  background-image: url("/fire-win.gif");
+  background-position-y: bottom;
+  height: 45vh;
+  width: 500px;
+  position: absolute;
+  top: 21%;
+  border-radius: 2rem;
+}
+
+.buttons {
+  position: relative;
+  display: flex;
+  gap: 2rem;
+  bottom: 20vh;
+}
+
+.buttons button {
+  border-radius: 20px;
+  padding: 8px;
+  width: 158px;
+  border: none;
+  cursor: pointer;
+  color: #000;
+  font-weight: bold;
+}
+
+.buttons button:nth-child(1):hover {
+  box-shadow: 0 0 4px 4px #02db02;
+  background-image: radial-gradient(white, #e5cfcf, #02db02);
+}
+
+.buttons button:nth-child(2):hover {
+  box-shadow: 0 0 4px 4px #ff3700;
+  background-image: radial-gradient(white, #e5cfcf, #ff3700);
+}
+
+@media only screen and (max-width: 450px) {
+
+  /* .gif, #scoreInfo, #warning {
+    width: 138vw;
+  } */
+  .gameOver {
+    background-size: cover;
+    height: 18rem;
+    width: 17rem;
+  }
+
+  .gameOver .message > p {
+    color: #000;
+  }
+
+  .lowFuel,
+  .win {
+    height: 14rem;
+    width: 17rem;
+    background-size: contain;
+  }
+
+  .buttons {
+    gap: 1rem;
+    bottom: 31vh;
+  }
+
+  .buttons button {
+    width: 125px;
+  }
+
+  .gif p,
+  .low p {
+    font-size: medium;
+  }
+
+  .bt-38 {
+    bottom: 38vh;
+  }
+
+}
+
+.button-container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 100px auto;
+}
+
+.movement-button {
+  background-color: rgba(255, 255, 255, 0.3);
+  border: none;
+  border-radius: 50%;
+  color: #000;
+  cursor: pointer;
+  font-size: 24px;
+  height: 50px;
+  line-height: 50px;
+  position: absolute;
+  text-align: center;
+  width: 50px;
+}
+
+.up {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.down {
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.left {
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.right {
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}

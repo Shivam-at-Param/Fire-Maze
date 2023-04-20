@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maze Game</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div id="warning">Collect all the Fuels to Win!</div>
+  <div id="game-container">
+    <div class="arrow"></div>
+    <div id="game-screen">
+      <!-- <div id="flame"></div> -->
+      <!-- Maze layout goes here -->
+    </div>
+    <div class="arrow out"></div>
+    <hr>
+    <div id="game-info">
+      <p>Fuel left: <span id="fuel">100</span></p>
+    </div>
+  </div>
+  <div class="popups">
+    <div class="low">
+      <div class="lowFuel">
+        <div class="message">
+          <p>Low Fuel. You ran out of Fuel..</p>
+        </div>
+      </div>
+      <div class="buttons bt-38">
+        <button onclick="reload()">Play Again</button>
+        <button>Exit</button>
+      </div>
+    </div>
+    <div class="gif">
+      <div class="gameOver">
+        <div class="message">
+          <p>Game Over. You step on Water!...</p>
+        </div>
+      </div>
+      <div class="buttons">
+        <button onclick="reload()">Play Again</button>
+        <button>Exit</button>
+      </div>
+    </div>
+    <div class="wins">
+      <div class="win">
+        <div class="message">
+          <p>You Won...</p>
+        </div>
+      </div>
+      <div class="buttons bt-38">
+        <button onclick="reload()">Play Again</button>
+        <button>Exit</button>
+      </div>
+    </div>
+  </div>
+  <div id="scoreInfo">
+    <p>Score: <span id="score">0</span></p>
+  </div>
+  <script src="main.js"></script>
+</body>
+
+</html>
